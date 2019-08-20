@@ -45,7 +45,7 @@
           <label>Product</label>
           <select formControlName="products" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.products.errors }">
             <option value=""></option>
-            <option *ngFor="let product of products; let i = index" [value]="products[i].value">
+            <option *ngFor="let product of products; let i = index" [value]="products[i].value" ng-change="onChanceP($event)">
               {{products[i].text}}
             </option>
           </select>
@@ -56,6 +56,13 @@
         <div class="form-group col-6">
           <label>Comentarios</label>
          <textarea class="form-control" rows = "7" cols = "5" formControlName="ProductDescription" ></textarea>
+        </div>
+        <div class="form-group col-6" *ngIf="showNew">
+          <label >Nuevo Producto</label>
+          <input type="text" formControlName="nuevoProd" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nuevoProd.errors }" />
+          <div *ngIf="submitted && f.nuevoProd.errors" class="nuevoProd-feedback">
+            <div *ngIf="f.nuevoProd.errors.required">First Name is required</div>
+          </div>
         </div>
       </div>
       <div class="text-center">

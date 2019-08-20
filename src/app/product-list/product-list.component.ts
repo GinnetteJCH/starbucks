@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { CartService } from '../cart.service';
 
 import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-product-list',
@@ -14,6 +15,7 @@ export class ProductListComponent {
   submitted = false;
   users = [];
   products = [];
+  showNew = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -78,4 +80,11 @@ export class ProductListComponent {
       ];
   }
 
+  onChanceP(e){
+    if(e.target.value == "Nuevo"){
+      this.showNew = true;
+    }else{
+      this.showNew = false;
+    }
+  }
 }
