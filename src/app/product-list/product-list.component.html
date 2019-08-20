@@ -24,71 +24,45 @@
 </div-->
 
 <!-- Editable table -->
-<div class="card mb-3">
-  <h5 class="card-header">Angular 8 Reactive Form Validation</h5>
+  <h5 class="card-header">Selecct Starbuck Products</h5>
   <div class="card-body">
     <!-- Form -->
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
       <div class="form-row">
-        <div class="form-group col">
-          <label>Title</label>
-          <select formControlName="title" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
-            <option value=""></option>
-            <option value="Mr">Mr</option>
-            <option value="Mrs">Mrs</option>
-            <option value="Miss">Miss</option>
-            <option value="Ms">Ms</option>
-          </select>
-          <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
-            <div *ngIf="f.title.errors.required">Title is required</div>
-          </div>
-        </div>
-        <div class="form-group col-5">
-          <label>First Name</label>
-          <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
-          <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-              <div *ngIf="f.firstName.errors.required">First Name is required</div>
-          </div>
-        </div>
-        <div class="form-group col-5">
-          <label>Last Name</label>
+        <div class="form-group col-3">
+          <label>Nombre</label>
           <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
           <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
             <div *ngIf="f.lastName.errors.required">Last Name is required</div>
           </div>
         </div>
-      </div>
-      <div class="table-editable" id="table">
-        <span class="table-add float-right mb-3 mr-2">
-          <a class="text-success" (click)="add()">
-            <mdb-icon fas icon="plus-circle" size="2x"></mdb-icon>
-          </a>
-        </span>
-        <table class="table table-bordered table-responsive-md table-striped text-center">
-          <tr>
-            <th class="text-center">Nombre</th>
-            <th class="text-center">Precio</th>
-            <th class="text-center">Deslactosada</th>
-            <th class="text-center">Creama Batida</th>
-          </tr>
-          <tr *ngFor="let product of products; index as productId">
-            <td>{{product.name}}</td>
-            <td>{{product.price}}</td>
-            <td>
-              <div class="custom-control custom-checkbox">
-                <mdb-checkbox default="true"></mdb-checkbox>
-              </div>
-            </td>
-            <td>
-              <div class="custom-control custom-checkbox">
-                <mdb-checkbox default="true"></mdb-checkbox>
-              </div>
-            </td>
-          </tr>
-        </table>
+        <div class="form-group col-5">
+          <label>Product</label>
+          <select formControlName="title" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
+            <option value=""></option>
+            <option value="caramelo">Frappuccino Caramelo </option>
+            <option value="strawberry">Strawberry Frappuccino </option>
+            <option value="sausage">Sausage, Cheddar & Egg Breakfast Sandwich</option>
+            <option value="javaShip">Java Ship Frappuccino</option>
+          </select>
+          <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+            <div *ngIf="f.title.errors.required">Title is required</div>
+          </div>
+        </div>
+        <div class="form-group col-3">
+          <label>Tipo de Leche</label>
+          <select formControlName="title" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
+            <option value=""></option>
+            <option value="entera">Leche Entera</option>
+            <option value="almendras">Leche de Almendras</option>
+          </select>
+          <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+              <div *ngIf="f.firstName.errors.required">First Name is required</div>
+          </div>
+        </div>
       </div>
       <div class="text-center">
-        <button class="btn btn-primary mr-1">Register</button>
+        <button class="btn btn-primary mr-1">Add</button>
         <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
       </div>
     </form>
@@ -130,5 +104,4 @@
       </table>
     </div-->
   </div>
-</div>
 <!-- Editable table -->
