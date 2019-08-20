@@ -29,25 +29,42 @@
     <!-- Form -->
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
       <div class="form-row">
-        <div class="form-group col-6">
+        <div class="form-group col-5">
           <label>Nombre</label>
-          <input type="text" formControlName="nombre" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }" />
+           <select formControlName="nombre" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }">
+            <option value=""></option>
+            <option value="Ginnette">Ginnette</option>
+            <option value="Walter">Walter</option>
+            <option value="John">John</option>
+            <option value="Gabriela">Gabriela</option>
+            <option value="Rocio">Rocio</option>
+            <option value="Fernando">Fernando</option>
+            <option value="Marlene">Marlene</option>
+            <option value="Karla">Karla</option>
+            <option value="Sergio">Sergio</option>
+          </select>
           <div *ngIf="submitted && f.nombre.errors" class="alert alert-danger">
             <div *ngIf="f.nombre.errors.required">El nombre es requerido</div>
           </div>
         </div>
-        <div class="form-group col-6">
+        <div class="form-group col-5">
           <label>Product</label>
           <select formControlName="product" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.product.errors }">
             <option value=""></option>
-            <option value="caramelo">Frappuccino Caramelo </option>
-            <option value="strawberry">Strawberry Frappuccino </option>
-            <option value="sausage">Skinny Vainilla Latte</option>
-            <option value="javaShip">Java Ship Frappuccino</option>
+            <option value="Frappuccino Caramelo">Frappuccino Caramelo</option>
+            <option value="Strawberry Frappuccino">Strawberry Frappuccino</option>
+            <option value="Skinny Vainilla Latte">Skinny Vainilla Latte</option>
+            <option value="Java Ship Frappuccino">Java Ship Frappuccino</option>
+            <option value="Frappuccino vainilla">Frappuccino vainilla</option>
+            <option value="Caramel Ribbon Crunch Frappuccino">Caramel Ribbon Crunch Frappuccino</option>
+            <option value="Sausage, Cheddar & Egg Breakfast Sandwich">Sausage, Cheddar & Egg Breakfast Sandwich</option>
           </select>
           <div *ngIf="submitted && f.product.errors" class="alert alert-danger">
             <div *ngIf="f.product.errors.required">El producto es requerido</div>
           </div>
+        </div>
+        <div class="form-group col-2">
+           <button class="btn btn-primary mr-1" (click)="onChangeTickets($event)">Nuevo Producto</button>
         </div>
         <div class="form-group col-6">
           <label>Comentarios</label>
