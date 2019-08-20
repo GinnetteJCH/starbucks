@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 
-import { products } from '../products';
 import { CartService } from '../cart.service';
 
 import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
@@ -11,21 +10,21 @@ import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent {
-  products = products;
   registerForm: FormGroup;
   submitted = false;
+  users = [];
+  products = [];
 
   constructor(
     private formBuilder: FormBuilder,
     private cartService: CartService
-  ) { }
+  ) {
+    this.users = this.getUser();
+    this.products = this.getProducts();
+   }
 
   // convenience getter for easy access to form fields
   get f() { return this.registerForm.controls; }
-
-  share() {
-    window.alert('The product has been shared!');
-  }
 
   onSubmit(customerData) {
     this.submitted = true;
@@ -47,14 +46,36 @@ export class ProductListComponent {
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      nombre: ['', Validators.required],
-      product: ['', Validators.required]
+      users: ['', Validators.required],
+      products: ['', Validators.required]
     });
   }
 
   onReset() {
     this.submitted = false;
     this.registerForm.reset();
+  }
+
+  getUser(){
+    return [
+        { value: 'Ginnette', text: 'Ginnette' },
+        { value: 'Walter', text: 'Walter' },
+        { value: 'John', text: 'John' },
+        { value: 'Gabriela', text: 'Gabriela' }
+      ];
+  }
+
+  getProducts(){
+    return [
+        { value: 'Frappuccino Caramelo', text: 'Frappuccino Caramelo' },
+        { value: 'Strawberry Frappuccino', text: 'Strawberry Frappuccino' },
+        { value: 'JoSkinny Vainilla Lattehn', text: 'Skinny Vainilla Latte' },
+        { value: 'Java Ship Frappuccino', text: 'Java Ship Frappuccino' },
+        { value: 'Frappuccino vainilla', text: 'Frappuccino vainilla' },
+        { value: 'Caramel Ribbon Crunch Frappuccino', text: 'Caramel Ribbon Crunch Frappuccino' },
+        { value: 'Sausage, Cheddar & Egg Breakfast Sandwich', text: 'Sausage, Cheddar & Egg Breakfast Sandwich' },
+        { value: 'Nuevo', text: 'Agregar Nuevo' }
+      ];
   }
 
 }
