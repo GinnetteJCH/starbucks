@@ -1,4 +1,4 @@
-<h2>Products</h2>
+<!--h2>Products</h2>
 
 <div *ngFor="let product of products; index as productId">
 
@@ -21,4 +21,34 @@
     (notify)="onNotify()">
   </app-product-alerts>
 
+</div-->
+
+<!-- Editable table -->
+<div class="card">
+  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Editable table</h3>
+  <div class="card-body">
+    <div id="table" class="table-editable">
+      <span class="table-add float-right mb-3 mr-2">
+        <a class="text-success" (click)="add()">
+        </a>
+      </span>
+      <table class="table table-bordered table-responsive-md table-striped text-center">
+        <tr>
+          <th class="text-center">Nombre</th>
+          <th class="text-center">Precio</th>
+          <th class="text-center">Acción</th>
+        </tr>
+        <tr *ngFor="let product of products; index as productId">
+          <td>{{product.name}}</td>
+          <td>{{product.price}}</td>
+          <td>
+            <span class="table-remove">
+              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" (click)="remove(id)">Remove</button>
+            </span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
 </div>
+<!-- Editable table -->
