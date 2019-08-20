@@ -30,6 +30,7 @@
     <div id="table" class="table-editable">
       <span class="table-add float-right mb-3 mr-2">
         <a class="text-success" (click)="add()">
+          Add
         </a>
       </span>
       <table class="table table-bordered table-responsive-md table-striped text-center">
@@ -42,7 +43,12 @@
           <td>{{product.name}}</td>
           <td>{{product.price}}</td>
           <td>
-            <span class="table-remove">
+            <div class="custom-control custom-checkbox">
+              <mdb-checkbox default="true">Check 1</mdb-checkbox>
+            </div>
+          </td>
+          <td>
+            <span class="table-add">
               <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" (click)="remove(id)">Remove</button>
             </span>
           </td>
