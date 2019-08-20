@@ -48,8 +48,7 @@ export class ProductListComponent {
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
       nombre: ['', Validators.required],
-      product: ['', Validators.required],
-      leche: ['', Validators.required]
+      product: ['', Validators.required]
     });
   }
 

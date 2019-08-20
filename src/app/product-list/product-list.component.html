@@ -29,14 +29,14 @@
     <!-- Form -->
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
       <div class="form-row">
-        <div class="form-group col-3">
+        <div class="form-group col-6">
           <label>Nombre</label>
           <input type="text" formControlName="nombre" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }" />
           <div *ngIf="submitted && f.nombre.errors" class="alert alert-danger">
             <div *ngIf="f.nombre.errors.required">El nombre es requerido</div>
           </div>
         </div>
-        <div class="form-group col-5">
+        <div class="form-group col-6">
           <label>Product</label>
           <select formControlName="product" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.product.errors }">
             <option value=""></option>
@@ -49,21 +49,14 @@
             <div *ngIf="f.product.errors.required">El producto es requerido</div>
           </div>
         </div>
-        <div class="form-group col-3">
-          <label>Tipo de Leche</label>
-          <select formControlName="leche" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.leche.errors }">
-            <option value=""></option>
-            <option value="entera">Leche Entera</option>
-            <option value="almendras">Leche de Almendras</option>
-          </select>
-          <div *ngIf="submitted && f.leche.errors" class="alert alert-danger">
-              <div *ngIf="f.leche.errors.required">El tipo de leche es requerida</div>
-          </div>
+        <div class="form-group col-6">
+          <label>Comentarios</label>
+         <textarea class="form-control" rows = "7" cols = "5" formControlName="ProductDescription" ></textarea>
         </div>
       </div>
       <div class="text-center">
         <button class="btn btn-primary mr-1">Add</button>
-        <button class="btn btn-secondary" type="reset" (click)="addToCart()">Cancel</button>
+        <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
       </div>
     </form>
     <!-- Form -->
